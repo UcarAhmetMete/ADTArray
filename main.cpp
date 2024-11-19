@@ -1,6 +1,4 @@
 #include <iostream>
-//#include <sstream>
-
 
 struct Array {
     int *A;
@@ -9,9 +7,9 @@ struct Array {
 };
 
 void Display(struct Array arr) {
-    int i;
+
     std::cout << "\nElements are\n"<< std::endl;
-    for (i = 0; i < arr.length; i++) {
+    for (int i = 0; i < arr.length; i++) {
         std::cout << arr.A[i] << " ";
     }
 }
@@ -59,9 +57,9 @@ int main()
     return 0;
 }*/
 int BinarySearch(struct Array arr, int key) {
-    int l,mid,h;
-    l=0;
-    h=arr.length-1;
+    int mid;
+    int l=0;
+    int h=arr.length-1;
     while (l<=h) {
         mid = (l+h)/2;
         if (key == arr.A[mid]) {
@@ -141,12 +139,12 @@ int main() {
     arr.A = new int[arr.size];
     do {
         std::cout <<"Menu\n";
-        std::cout<<"1. Insert\n";
-        std::cout<<"2. Delete\n";
-        std::cout<<"3. Linear Search\n";
-        std::cout<<"4. Binary Search\n";
-        std::cout<<"5. Append\n";
-        std::cout<<"6. Sum\n";
+        std::cout<<"1. Insert\n"; // ok
+        std::cout<<"2. Delete\n"; // ok
+        std::cout<<"3. Linear Search\n"; // ok
+        std::cout<<"4. Sum\n"; // ok
+        std::cout<<"5. Binary Search\n";
+        std::cout<<"6. Append\n";
         std::cout<<"7. Display\n";
         std::cout<<"8. Exit\n"; // Option sayisini degistirdim bunu ayarla
 
@@ -163,30 +161,58 @@ int main() {
                 std::cout <<"Enter the index:";
                 std::cin >> index;
                 x = Delete(&arr,index);
-                std::cout<<"\nArray Deleted:\n"<<std::endl;
+                if ( index <0 || index > arr.length ) {
+                    std::cerr << "Invalid Index" << std::endl;
+                }
+                else
+                    std::cout <<"\nArray Deleted:\n"<<std::endl;
                 break;
             case 3:
-                std::cout <<"Enter the element for searching";
+                std::cout <<"Enter the element for linear searching";
                 std::cin >> x;
                 index = LinearSearch(&arr,x);
                 std::cout<<"\nArray Searched:\n"<<std::endl;
-                if(index < 0 && index > arr.size) {
+                if(index < 0 || index > arr.size) {
                     std::cout<<"Element not found\n";
                 }
                 else {
                     std::cout<<"Element found at index: "<<index<<std::endl;
                 }
-
                 break;
             case 4:
                 std::cout << "sum " << Sum(arr) << std::endl;
                 break;
             case 5:
-                DisplayArray(arr);
+                std::cout << "\nEnter the element for Binary Search";
+                std::cin >> x;
+                index = BinarySearch(arr,x); // Binary Search Complexity O(LogN)
+                std::cout<<"\nArray Searched:\n"<<std::endl;
+                if(index < 0 || index > arr.size) {
+                    std::cout<<"\nElement not found\n";
+                }
+                else {
+                    std::cout<<"\nElement found at index: "<<index<<std::endl;
+                }
                 break;
             case 6:
+                std::cout << "\nEnter the element for append to array: "; // Append method is used
+                std::cin >> x;
+                Append(&arr,x);
+                if (arr.length == arr.size) {
+                    std::cout << "Append failed: Array is full.\n";
+                }
+                else {
+                    std::cout<<"\nArray Appended:\n"<<std::endl;
+                }
+
+                break;
+            case 7:
+                DisplayArray(arr);
+                break;
+            case 8:
                 std::cout << "Exit\n";
                 break;
+
             default:
                 std::cout << "Invalid Choice\n";
         }
