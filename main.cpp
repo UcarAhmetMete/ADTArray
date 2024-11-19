@@ -38,24 +38,7 @@ void Insert(struct Array *arr, int index, int x) {
         std::cerr << "\nArray Overflow\n" << std::endl;
     }
 }
-/*
-int main()
-{
-    struct Array arr;
-    int n,i;
-    std::cout << "Enter the size of an array!" << std::endl;
-    std::cin >> arr.size;
-    arr.A = new int[arr.size];
-    arr.lenght = 0;
-    std::cout << "Enter the number of numbers" << std::endl;
-    std::cin >> n;
-    std::cout << "Enter the elements of an array!" << std::endl;
-    for(i=0;i<n;i++)
-        std::cin >> arr.A[i];
-    arr.lenght = n;
-    Display(arr);
-    return 0;
-}*/
+
 int BinarySearch(struct Array arr, int key) {
     int mid;
     int l=0;
