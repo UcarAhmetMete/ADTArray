@@ -1,0 +1,3 @@
+/Users/ahmetmeteucar/CLionProjects/ADTArray/cmake-build-debug/CMakeFiles/ADTArray.dir
+/Users/ahmetmeteucar/CLionProjects/ADTArray/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/ahmetmeteucar/CLionProjects/ADTArray/cmake-build-debug/CMakeFiles/rebuild_cache.dir
