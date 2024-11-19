@@ -38,7 +38,7 @@ void Insert(struct Array *arr, int index, int x) {
         std::cerr << "\nArray Overflow\n" << std::endl;
     }
 }
-/
+
 int BinarySearch(struct Array arr, int key) {
     int mid;
     int l=0;
